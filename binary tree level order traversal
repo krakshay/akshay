@@ -1,0 +1,58 @@
+package leetcode;
+
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+//linked list
+public class bt_level_order {
+	
+	
+	static class Node
+	{
+		int data;
+		Node left,right;
+		Node(int x)
+		{
+			data=x;
+			left=right=null;
+			
+		}
+		
+	};
+	
+	static void levl_order(Node root)
+	{
+		Queue<Node> queue=new LinkedList<Node>();
+		Node d;
+		queue.add(root);
+		while(!queue.isEmpty())
+		{d=queue.remove();
+			System.out.println(d.data);
+			if(d.left!=null)
+			{
+				queue.add(d.left);
+			}
+			if(d.right!=null)
+			{
+				queue.add(d.right);
+			}
+		}	
+	}
+	
+	
+	
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+Node root=new Node(1);
+root.left=new Node(2);
+root.right=new Node(3);
+root.left.left=new Node(4);
+root.left.right=new Node(5);
+root.right.left=new Node(6);
+root.right.right=new Node(7);
+levl_order(root);
+	}
+
+}
